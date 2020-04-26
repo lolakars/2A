@@ -1,43 +1,59 @@
-<div style = "width: 40em;">
-<font face = "Arial"> <p> Below, you will see a series of sentences that you will have to score depending on how acceptable they seem to you. To do this, you will have to use a scale from 1 (not acceptable at all) to 7 (totally acceptable) </p>
+var shuffleSequence = seq ("intro", randomize ("practice"), shuffle (randomize (anyOf ("subj_rel", "obj_rel")), randomize (anyOf ("filler_gram", "filler_ungram"))));
 
-<p> A sentence is totally acceptable when hearing it you can easily understand it and it sounds natural to you, that is, a native speaker could use it in a conversation. A sentence is totally unacceptable when it doesn't make sense and / or doesn't sound natural to you, that is, a native speaker would never say something like that. Therefore, do not think about the grammar rules that you could have learned in school or institute, be guided by your intuitions. </p>
+var sendingResultsMessage = "Results are being sent to the server.";
+var completionMessage = "The results have been sent to the server. Thank you very much!";
+var progressBarText = "Progress bar";
+var pageTitle = "Experiment";
 
-<p> Before starting the experiment, please answer the following questions: </p>
+var defaults = [
+  "AcceptabilityJudgment", {
+      as: ["1", "2", "3", "4", "5", "6", "7"],
+      presentAsScale: true,
+      instructions: "Press the number on the keyboard or click on the punctuation you want to give to the sentence.",
+      leftComment: "Unacceptable", rightComment: "Acceptable"
+    },
 
+  "Form", {
+      hideProgressBar: true,
+      continueOnReturn: true,
+      saveReactionTime: true,
+      continueMessage: "Click here to continue"
+    },
+];
 
-<strong> 1. Were you born and raised in Spain? </strong> </br>
-    Yes
-    <input name = "spain" type = "radio" class = "obligatory" value = "yes" />
-    No
-    <input name = "spain" type = "radio" class = "obligatory" value = "no" />
+var items = [
 
-</br>
-</br>
+["intro", "Form", {
+    html: {include: "example_intro.html"},
+    validators: {
+        age: function (s) {if (s.match (/ ^ \ d + $ /)) return true; else return "Wrong value for \ u2018edad \ u2019"; }
+        }
+    }],
 
-<strong> 2. Does your family always speak Spanish at home? </strong> </br>
-    Yes
-    <input name = "spanish" type = "radio" class = "obligatory" value = "yes" />
-    No
-    <input name = "spanish" type = "radio" class = "obligatory" value = "no" />
+// Practice
 
-</br>
-</br>
+["practice", "AcceptabilityJudgment", {s: "Luis's house is far from the city center."}],
+["practice", "AcceptabilityJudgment", {s: "Neighbors saw that the glass in the door was broken."}],
 
-<strong> 3. Age: </strong>
-    <input name = "age" type = "text" size = "2" class = "obligatory" />
+// Subject relatives
 
-</br>
-</br>   
+[["subj_rel", 1], "AcceptabilityJudgment", {s: "They knew the athlete who finally beat the runner last year."}],
+[["subj_rel", 2], "AcceptabilityJudgment", {s: "They investigated the witness who was clearly pointing to the murderer during the trial."}],
+[["subj_rel", 3], "AcceptabilityJudgment", {s: "They applauded the actor who brought the director to the Oscars that year."}],
+[["subj_rel", 4], "AcceptabilityJudgment", {s: "They censored the program that severely denounced the politician through the radio."}],
 
-<strong> 4. Sex: </strong>
-    <input name = "sex" type = "radio" value = "male" class = "obligatory" /> Male
-    <input name = "sex" type = "radio" value = "female" class = "obligatory" /> Woman
-    <input name = "sex" type = "radio" value = "nonbinary" class = "obligatory" /> Non-binary
+// Object relatives
 
-</br>
-</br> 
+[["obj_rel", 1], "AcceptabilityJudgment", {s: "They knew the athlete who finally beat the runner last year."}],
+[["obj_rel", 2], "AcceptabilityJudgment", {s: "They investigated the witness who was clearly pointing to the murderer during the trial."}],
+[["obj_rel", 3], "AcceptabilityJudgment", {s: "They applauded the actor who brought the director to the Oscars that year."}],
+[["obj_rel", 4], "AcceptabilityJudgment", {s: "They censored the program that the politician strongly denounced through the radio."}],
 
-<input type = "checkbox" class = "obligatory" name = "consent" /> I agree to participate in the experiment
+// Fillers
 
-</font>
+["filler_gram", "AcceptabilityJudgment", {s: "The fruit vendor has asked the client if she needs a plastic bag."}],
+["filler_gram", "AcceptabilityJudgment", {s: "They saw that the lawyer had deliberately manipulated the evidence to win the case"}],
+["filler_ungram", "AcceptabilityJudgment", {s: "The explorer was watching out for a wild animal out of the jungle."}],
+["filler_ungram", "AcceptabilityJudgment", {s: "They denounced that the footballer had been unfairly penalized in the final."}],
+
+]; //
