@@ -1,4 +1,4 @@
-var shuffleSequence = seq ("intro", anyOf ("practice"), shuffle (randomize (anyOf ("adj_tr", "adj_in", "sr_tr", "sr_in")), randomize ("filler")));
+var shuffleSequence = seq ("intro", anyOf ("practice"), shuffle (randomize (anyOf ("a", "b", "c", "d")), randomize ("filler")));
 
 var practiceItemTypes = ["prac"];
 
@@ -35,21 +35,22 @@ var items = [
 
 // Practice
 
-["practice", "AcceptabilityJudgment", {s: "Luis's house is far from the city center."}],
-["practice", "AcceptabilityJudgment", {s: "Neighbors saw that the glass in the door was broken."}],
+["practice", "DashedSentence", {s: "Luis's house is far from the city center."}],
+["practice", "DashedSentence", {s: "Neighbors saw that the glass in the door was broken."}],
   
-    [["q1",[200,2]], "AcceptabilityJudgment", {s: {html: "<b>Which struggling students</b> did the teacher encourage to succeed without treating their friends like idiots?"}}],
-    [["q2",[200,2]], "AcceptabilityJudgment", {s: {html: "<b>Which struggling students</b> did the teacher encourage their friends to succeed without treating like idiots?"}}],  
   
-
 // experimental sentences
 
-[["subj_rel", 1], "AcceptabilityJudgment", {s: "They knew the athlete who finally beat the runner last year."}],
-[["subj_rel", 2], "AcceptabilityJudgment", {s: "They investigated the witness who was clearly pointing to the murderer during the trial."}],
-[["subj_rel", 3], "AcceptabilityJudgment", {s: "They applauded the actor who brought the director to the Oscars that year."}],
-[["subj_rel", 4], "AcceptabilityJudgment", {s: "They censored the program that severely denounced the politician through the radio."}],
-
-
+[["a", [1,1]], "DashedSentence", {s: "אחרי_שקבוצת_הכדורגל שיחקה שני_משחקים נוספים בוטלו על_ידי .ההנהלה"},"Form", {s: {html:"<p>מה קבוצת_הכדורגל שיחקה?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+[["b", [2,1]], "DashedSentence", {s: "אחרי_שקבוצת_הכדורגל הגיעה שני_משחקים נוספים בוטלו על_ידי .ההנהלה"},"Form", {s: {html:"<p>למה קבוצת_הכדורגל הגיעה?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+[["c", [3,1]], "DashedSentence", {s: "המנהלים קבעו לקבוצת_הכדורגל ששיחקה שני_משחקים נוספים בשבוע .הקרוב"},"Form", {s: {html:"<p>מה קבוצת_הכדורגל שיחקה?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+[["d", [4,1]], "DashedSentence", {s: "המנהלים קבעו לקבוצת_הכדורגל שהגיעה שני_משחקים נוספים בשבוע .הקרוב"},"Form", {s: {html:"<p>למה קבוצת_הכדורגל הגיעה?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+  
+[["a", [1,2]], "DashedSentence", {s: "בגלל_שהתינוקות זחלו כשעה בחדר הם התעייפו .לקראת_הצהריים"},"Form", {s: {html:"<p>למה התינוקות התעייפו?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+[["b", [2,2]], "DashedSentence", {s: "בגלל_שהתינוקות זחלו כשעה בחדר הם התעייפו .לקראת_הצהריים"},"Form", {s: {html:"<p>למה התינוקות התעייפו?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+[["c", [3,2]], "DashedSentence", {s: "בגלל_שהתינוקות זחלו כשעה בחדר הם התעייפו .לקראת_הצהריים"},"Form", {s: {html:"<p>למה התינוקות התעייפו?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+[["d", [4,2]], "DashedSentence", {s: "בגלל_שהתינוקות זחלו כשעה בחדר הם התעייפו .לקראת_הצהריים"},"Form", {s: {html:"<p>למה התינוקות התעייפו?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+  
 // Fillers
 
 ["filler", "DashedSentence", {s: "בגלל_שהתינוקות זחלו כשעה בחדר הם התעייפו .לקראת_הצהריים"},"Form", {s: {html:"<p>למה התינוקות התעייפו?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
