@@ -42,25 +42,19 @@ var items = [
     [["q2",[200,2]], "AcceptabilityJudgment", {s: {html: "<b>Which struggling students</b> did the teacher encourage their friends to succeed without treating like idiots?"}}],  
   
 
-// Subject relatives
+// experimental sentences
 
 [["subj_rel", 1], "AcceptabilityJudgment", {s: "They knew the athlete who finally beat the runner last year."}],
 [["subj_rel", 2], "AcceptabilityJudgment", {s: "They investigated the witness who was clearly pointing to the murderer during the trial."}],
 [["subj_rel", 3], "AcceptabilityJudgment", {s: "They applauded the actor who brought the director to the Oscars that year."}],
 [["subj_rel", 4], "AcceptabilityJudgment", {s: "They censored the program that severely denounced the politician through the radio."}],
 
-// Object relatives
-
-[["obj_rel", 1], "AcceptabilityJudgment", {s: "They knew the athlete who finally beat the runner last year."}],
-[["obj_rel", 2], "AcceptabilityJudgment", {s: "They investigated the witness who was clearly pointing to the murderer during the trial."}],
-[["obj_rel", 3], "AcceptabilityJudgment", {s: "They applauded the actor who brought the director to the Oscars that year."}],
-[["obj_rel", 4], "AcceptabilityJudgment", {s: "They censored the program that the politician strongly denounced through the radio."}],
 
 // Fillers
 
-["filler_gram", "AcceptabilityJudgment", {s: "The fruit vendor has asked the client if she needs a plastic bag."}],
-["filler_gram", "AcceptabilityJudgment", {s: "They saw that the lawyer had deliberately manipulated the evidence to win the case"}],
-["filler_ungram", "AcceptabilityJudgment", {s: "The explorer was watching out for a wild animal out of the jungle."}],
-["filler_ungram", "AcceptabilityJudgment", {s: "They denounced that the footballer had been unfairly penalized in the final."}],
+["filler", "DashedSentence", {s: "בגלל_שהתינוקות זחלו כשעה בחדר הם התעייפו .לקראת_הצהריים"},"Form", {s: {html:"<p>למה התינוקות התעייפו?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],  
+["filler", "DashedSentence", {s: "אחרי_שהקריינית טעתה במהלך החדשות היא נאלצה .להתנצל"},"Form", {s: {html:"<p>"למה הקריינית נאלצה להתנצל?"</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],
+["filler", "DashedSentence", {s: "אחרי_שהסטודנטים השתתפו בשלושה_סמינרים מתקדמים הם התבקשו לתת .משוב"},"Form", {s: {html:"<p>מה הסטודנטים התבקשו לתת?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],
+["filler", "DashedSentence", {s: "אחרי_שהשופטת קראה את_פסק_הדין המחמיר הנאשם התעלף בבית .המשפט"},"Form", {s: {html:"<p>מה השופטת קראה?</p> <p> <input type="text" class="obligatory" size="100"></p> <p> <br> </p>"}}],
 
 ]; //
