@@ -1,4 +1,6 @@
-var shuffleSequence = seq ("intro", randomize ("practice"), shuffle (randomize (anyOf ("subj_rel", "obj_rel")), randomize (anyOf ("filler_gram", "filler_ungram"))));
+var shuffleSequence = seq ("intro", anyOf ("practice"), shuffle (randomize (anyOf ("adj_tr", "adj_in", "sr_tr", "sr_in")), randomize ("filler")));
+
+var practiceItemTypes = ["prac"];
 
 var sendingResultsMessage = "Results are being sent to the server.";
 var completionMessage = "The results have been sent to the server. Thank you very much!";
@@ -6,18 +8,19 @@ var progressBarText = "Progress bar";
 var pageTitle = "Experiment";
 
 var defaults = [
-  "AcceptabilityJudgment", {
-      as: ["1", "2", "3", "4", "5", "6", "7"],
-      presentAsScale: true,
-      instructions: "Press the number on the keyboard or click on the punctuation you want to give to the sentence.",
-      leftComment: "Unacceptable", rightComment: "Acceptable"
+   "DashedSentence", {
+        mode: "self-paced reading"
     },
-
+    "FlashSentence", {
+        timeout: 1500,
+    },
+      instructions: "ENTER יש לכתוב תשובה לשאלה וללחוץ על המקש",
+    },
+//"FlashSentence" here is an open question that requires the answer to be written by the participant. What will be the command for the question to appear on the screen during writing the answer?
   "Form", {
       hideProgressBar: true,
       continueOnReturn: true,
       saveReactionTime: true,
-      continueMessage: "Click here to continue"
     },
 ];
 
@@ -34,6 +37,10 @@ var items = [
 
 ["practice", "AcceptabilityJudgment", {s: "Luis's house is far from the city center."}],
 ["practice", "AcceptabilityJudgment", {s: "Neighbors saw that the glass in the door was broken."}],
+  
+    [["q1",[200,2]], "AcceptabilityJudgment", {s: {html: "<b>Which struggling students</b> did the teacher encourage to succeed without treating their friends like idiots?"}}],
+    [["q2",[200,2]], "AcceptabilityJudgment", {s: {html: "<b>Which struggling students</b> did the teacher encourage their friends to succeed without treating like idiots?"}}],  
+  
 
 // Subject relatives
 
